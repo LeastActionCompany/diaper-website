@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    color: #292524;
+    background-color: #fffbf5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-400 text-white font-semibold py-3 px-7 rounded-2xl transition-all duration-200 shadow-blue-sm hover:shadow-blue-md hover:-translate-y-0.5 active:translate-y-0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .btn-secondary {
+    @apply bg-white hover:bg-primary-50 text-primary-700 font-semibold py-3 px-7 rounded-2xl border-2 border-primary-200 hover:border-primary-300 transition-all duration-200;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .btn-accent {
+    @apply bg-accent-500 hover:bg-accent-600 text-white font-semibold py-3 px-7 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md hover:-translate-y-0.5;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .card {
+    @apply bg-white rounded-3xl shadow-card hover:shadow-card-hover transition-all duration-300 border border-primary-100;
+  }
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-dark-900 leading-tight;
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .section-subtitle {
+    @apply text-lg text-stone-500 font-normal leading-relaxed;
+  }
+  .badge-verified {
+    @apply inline-flex items-center gap-1.5 bg-success-500 text-white text-xs font-bold px-3 py-1 rounded-full;
+  }
+  .badge-pending {
+    @apply inline-flex items-center gap-1.5 bg-warm-500 text-white text-xs font-bold px-3 py-1 rounded-full;
+  }
+  .progress-bar {
+    @apply w-full h-2.5 bg-primary-100 rounded-full overflow-hidden;
+  }
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-primary-500 to-accent-400 rounded-full transition-all duration-1000;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-2xl border-2 border-primary-100 focus:border-primary-300 focus:outline-none focus:ring-0 bg-white text-dark-900 placeholder-stone-400 transition-all duration-200;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .nav-link {
+    @apply text-stone-600 hover:text-primary-600 font-medium transition-colors duration-200 relative;
+  }
+  .nav-link.active {
+    @apply text-primary-600;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-accent-500 bg-clip-text text-transparent;
+  }
+  .bg-grid {
+    background-image: radial-gradient(circle, #f9731620 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+  .glassmorphism {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+}
+
+/* Scroll animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Progress bar animation */
+.progress-animate {
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #fff7ed; }
+::-webkit-scrollbar-thumb { background: #f97316; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #ea580c; }
